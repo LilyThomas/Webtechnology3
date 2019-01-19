@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://upper" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://upper" xmlns:intf="http://upper" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://upper" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="toUpper">
+    <complexType>
+     <sequence>
+      <element name="str" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="toUpperResponse">
+    <complexType>
+     <sequence>
+      <element name="toUpperReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="toUpperRequest">
+
+      <wsdl:part element="impl:toUpper" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="toUpperResponse">
+
+      <wsdl:part element="impl:toUpperResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ToUpper">
+
+      <wsdl:operation name="toUpper">
+
+         <wsdl:input message="impl:toUpperRequest" name="toUpperRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:toUpperResponse" name="toUpperResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ToUpperSoapBinding" type="impl:ToUpper">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="toUpper">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="toUpperRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="toUpperResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ToUpperService">
+
+      <wsdl:port binding="impl:ToUpperSoapBinding" name="ToUpper">
+
+         <wsdlsoap:address location="http://localhost:8080/OpdrachtSOAP1-upper/services/ToUpper"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

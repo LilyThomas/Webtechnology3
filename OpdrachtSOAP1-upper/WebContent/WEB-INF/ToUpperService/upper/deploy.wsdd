@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ToUpperService WSDL service -->
+
+  <service name="ToUpper" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://upper"/>
+      <parameter name="wsdlServiceElement" value="ToUpperService"/>
+      <parameter name="schemaQualified" value="http://upper"/>
+      <parameter name="wsdlServicePort" value="ToUpper"/>
+      <parameter name="className" value="upper.ToUpper"/>
+      <parameter name="wsdlPortType" value="ToUpper"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://upper" xmlns:retNS="http://upper" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="toUpper" qname="operNS:toUpper" returnQName="retNS:toUpperReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://upper" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:str" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="toUpper"/>
+
+  </service>
+</deployment>
